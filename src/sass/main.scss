@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
+
+//* Colors *//
+
+//### Theme 1
+
+// Backgrounds
+
+$veryDarkBlueMain: hsl(222, 26%, 31%); // main background
+$veryDarkBlueTogKey: hsl(223, 31%, 20%); // toggle background, keypad background
+$veryDarkBlueScreen: hsl(224, 36%, 15%); // screeen background
+
+// Keys
+
+$darkBlueBack: hsl(225, 21%, 49%); // key background
+$darkBlueShadow: hsl(224, 28%, 35%); // key shadow
+
+$red: hsl(6, 63%, 50%); // key background, toggle
+$darkRed: hsl(6, 70%, 34%);  // key shadow
+
+$lightGrayishOrange: hsl(30, 25%, 89%); // key background
+$grayishOrange: hsl(28, 16%, 65%);  // key shadow
+
+// Text
+
+$veryDarkGrayishBlue: hsl(221, 14%, 31%);
+$white: hsl(0, 0, 100%);
+
+//### Theme 2
+
+// Backgrounds
+
+$lightGray: hsl(0, 0%, 90%); // main background
+$grayishRed: hsl(0, 5%, 81%); // toggle background, keypad background
+$veryLightGray: hsl(0, 0%, 93%); // screeen background
+
+// Keys
+
+$darkModerateCyan: hsl(185, 42%, 37%); // key background
+$veryDarkCyan: hsl(185, 58%, 25%); 
+
+$orange: hsl(25, 98%, 40%); // key background, toggle
+$darkOrange: hsl(25, 99%, 27%); // key shadow
+
+$lightGrayishYellow: hsl(45, 7%, 89%); // key background
+$darkGrayishOrange: hsl(35, 11%, 61%); // key shadow
+
+// Text
+
+$veryDarkGrayishYellow: hsl(60, 10%, 19%);
+$white: hsl(0, 0, 100%);
+
+//### Theme 3
+
+// Backgrounds
+
+$veryDarkVioletMain: hsl(268, 75%, 9%); // main background
+$veryDarkVioletTogKey: hsl(268, 71%, 12%); // toggle background, keypad background
+
+// Keys
+
+$darkViolet: hsl(281, 89%, 26%); // key background
+$vividMagenta: hsl(285, 91%, 52%); // key shadow
+
+$pureCyan: hsl(176, 100%, 44%); // // key background, toggle
+$softCyan: hsl(177, 92%, 70%); // key shadow
+
+$veryDarkViolet: hsl(268, 47%, 21%); // key background
+$darkMagenta: hsl(290, 70%, 36%); // key shadow
+
+// Text
+
+$lightYellow: hsl(52, 100%, 62%);
+$veryDarkBlue: hsl(198, 20%, 13%);
+$white: hsl(0, 0, 100%);
+
+
+//* Global *//
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-size: 32px;
+    font-family: 'Spartan', sans-serif;
+}
+
+.container {
+    height: 100vh;
+}
+
+.calculator {
+    width: 800px;
+    padding: 20px 0;
+    & .theme {
+        font-size: 1rem;
+    }
+    & input {
+        font-size: 2.5rem;
+        width: 100%;
+        margin: 20px 0;
+        padding: 20px 45px;
+        text-align: end;
+        border: none;
+        border-radius: 10px;
+    }
+    & button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: .8em;
+        width: 80%;
+        height: 70px;
+        &.btn {
+            margin: 15px 0;
+            border-radius: 10px;
+            padding: 0 20px;
+            &:active {
+                position:relative;
+                top: 5px;
+            }
+        }
+        &.btn-reset {
+            width: 90%;
+            border-radius: 10px;
+        }
+        &.btn-equal {
+            width: 90%; 
+            border-radius: 10px;
+        }
+        &.btn-del {
+            width: 80%;
+            border-radius: 10px;
+        }
+    }
+}
+
+.bg-buttons {
+    border-radius: 10px;
+}
+
+.test input {
+    display: none;
+}
+
+.test .toggle span {
+    width: 12.5px;
+    height: 12.5px;
+    border-radius: 50%;
+    margin: auto 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.bg-toggle {
+    font-size: .9rem;
+    margin: 3px 8px;
+}
+
+.toggle {
+    min-width: 50px;
+    height: 20px;
+    border-radius: 20px;
+}
+
+//### Theme 1
+.bg-theme1 {
+    background-color: $veryDarkBlueMain;
+    transition: 0.5s;
+    & .calculator {
+        & .calc {
+            color: $white;
+        }
+        & .theme {
+            color: $white;
+        }
+        & .bg-toggle {
+            color: $white;
+        }
+        & .test .toggle span {
+            background-color: $red;
+        }
+        & .toggle {
+            display: flex;
+            justify-content: flex-start;
+            background-color: $veryDarkBlueTogKey;
+        }
+        & input {
+            background-color: $veryDarkBlueScreen;
+            color: $white;
+        }
+        & .bg-buttons {
+            background-color: $veryDarkBlueTogKey;
+        }
+        & button.btn {
+            background-color: $lightGrayishYellow;
+            color: $veryDarkGrayishBlue;
+            border-bottom: 5px solid $grayishOrange;
+            &:hover {
+                opacity: .8;              
+            }
+            &:active {
+                border-bottom: none;
+            }
+            &.btn-reset {
+                background-color: $darkBlueBack;
+                color: $white;
+                border-bottom: 5px solid $darkBlueShadow;
+                &:active {
+                    border-bottom: none;
+                }
+            }
+            &.btn-equal {
+                background-color: $red;
+                color: $white;
+                border-bottom: 5px solid $darkRed;
+                &:active {
+                    border-bottom: none;
+                }
+            }
+            &.btn-del {
+                background-color: $darkBlueBack;
+                color: $white;
+                border-bottom: 5px solid $darkBlueShadow;
+                &:active {
+                    border-bottom: none;
+                }
+            }          
+        }
+    }
+}
+
+//### Theme 2
+.bg-theme2 {
+    background-color: $lightGray;
+    transition: 0.5s;
+    & .calculator {
+        & .calc {
+            color: $veryDarkGrayishYellow;
+        }
+        & .theme {
+            color: $veryDarkGrayishYellow;
+        }
+        & .bg-toggle {
+            color: $veryDarkGrayishYellow;
+        }
+        & .test .toggle span {
+            background-color: $orange;
+        }
+        & .toggle {
+            display: flex;
+            justify-content: center;
+            background-color: $grayishRed;
+        }
+        & input {
+            background-color: $veryLightGray;
+            color: $veryDarkGrayishYellow;
+        }
+        & .bg-buttons {
+            background-color: $grayishRed;
+        }
+        & button.btn {
+            background-color: $lightGrayishOrange;
+            color: $veryDarkGrayishYellow;
+            border-bottom: 5px solid $darkGrayishOrange;
+            &:hover {
+                opacity: .8;
+            }
+            &:active {
+                border-bottom: none;
+            }
+            &.btn-reset {
+                background-color: $darkModerateCyan;
+                color: $white;
+                border-bottom: 5px solid $veryDarkCyan;
+                &:active {
+                    border-bottom: none;
+                }
+            }
+            &.btn-equal {
+                background-color: $orange;
+                color: $white;
+                border-bottom: 5px solid $darkOrange;
+                &:active {
+                    border-bottom: none;
+                }
+            }
+            &.btn-del {
+                background-color: $darkModerateCyan;
+                color: $white;
+                border-bottom: 5px solid $veryDarkCyan;
+                &:active {
+                    border-bottom: none;
+                }
+            }          
+        }
+    }
+}
+
+//### Theme 3
+.bg-theme3 {
+    background-color: $veryDarkVioletMain;
+    transition: 0.5s;
+    & .calculator {
+        & .calc {
+            color: $lightYellow;
+        }
+        & .theme {
+            color: $lightYellow;
+        }
+        & .bg-toggle {
+            color: $lightYellow;
+        }
+        & .test .toggle span {
+            background-color: $pureCyan;
+        }
+        & .toggle {
+            display: flex;
+            justify-content: flex-end;
+            background-color: $veryDarkVioletTogKey;
+        }
+        & input {
+            background-color: $veryDarkVioletTogKey;
+            color: $lightYellow;
+        }
+        & .bg-buttons {
+            background-color: $veryDarkVioletTogKey;
+        }
+        & button.btn {
+            background-color: $veryDarkViolet;
+            color: $lightYellow;
+            border-bottom: 5px solid $darkMagenta;
+            &:hover {
+                opacity: .8;
+            }
+            &:active {
+                border-bottom: none;
+            }
+            &.btn-reset {
+                background-color: $darkViolet;
+                color: $white;
+                border-bottom: 5px solid $vividMagenta;
+                &:active {
+                    border-bottom: none;
+                }
+            }
+            &.btn-equal {
+                background-color: $pureCyan;
+                color: $veryDarkBlue;
+                border-bottom: 5px solid $softCyan;
+                &:active {
+                    border-bottom: none;
+                }
+            }
+            &.btn-del {
+                background-color: $darkViolet;
+                color: $white;
+                border-bottom: 5px solid $vividMagenta;
+                &:active {
+                    border-bottom: none;
+                }
+            }          
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        margin: 100px auto;
+        padding: 0px;
+    }
+
+    .calculator {
+        max-width: 400px;
+        & input {
+            font-size: 2rem;
+            padding: 20px 25px;
+        }
+        & button {
+            font-size: .5em;
+            width: 80%;
+            height: 50px;
+            margin: 10px 0;
+            &.btn {
+                border-radius: 10px;
+                &:active {
+                    position:relative;
+                    top: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .container {
+        margin: 100px auto;
+        padding: 0px;
+    }
+
+    .calculator {
+        width: 300px;
+        & input {
+            font-size: 2rem;
+            padding: 20px 15px;
+        }
+        & button {
+            &.btn-reset {
+                width: 100%;
+            }
+            &.btn-equal {
+                width: 100%; 
+            }
+        }
+    }
+}
